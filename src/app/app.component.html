@@ -1,0 +1,39 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+           
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="javascript:void(0)">Blood Donor App with Ng2</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="javascript:void(0)"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a [routerLink]="['/home']">Home</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a [routerLink]="['/about']">About Us</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a [routerLink]="['/users']">Donor</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a [routerLink]="['/contact']">Contact</a>
+                    </li>
+                </ul>
+            </div>
+           
+        </div>
+       
+    </nav>
+  
+<section>
+	<div class="container">
+		<router-outlet></router-outlet>
+	</div>
+</section>

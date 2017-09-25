@@ -1,0 +1,80 @@
+<section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 ">
+                    <h3 *ngIf="!edit">Add New Donor</h3>
+                    <h3 *ngIf="edit">Update Donor Details</h3>
+                    
+                    	<div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Donor Name</label>
+                                <input type="text" [(ngModel)]="name" class="form-control" placeholder="Donor Name" id="name" required data-validation-required-message="name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email</label>
+                                <input type="email" [(ngModel)]="email" class="form-control" placeholder="Donor Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Blood Group</label>
+                                <input type="text" [(ngModel)]="bloodGroup" class="form-control" placeholder="Blood Group" id="name" required data-validation-required-message="name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" *ngIf="!edit" (click)="addNew()" class="btn btn-success btn-lg">Add Donor</button>
+                                <button type="submit" *ngIf="edit" (click)="updateDonor()" class="btn btn-success btn-lg">Update Donor</button>
+                            </div>
+                        </div>
+                        
+                   
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <h3>Donor List</h3>
+                    <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                
+                                <input type="text" class="form-control" #bloodGrp (keyup)="0" placeholder="Search By Blood Group" id="name" required>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    <table class="table">
+                    	<thead>
+                    		<tr>
+                    			<th>Donor Blood Group</th>
+                    			<th>Donor Name</th>
+                    			<th>Donor Email</th>
+                    			
+                    			<th>Action</th>
+                    		</tr>
+                    	</thead>
+						<tr *ngFor="let user of users | search:bloodGrp.value; let i = index;">
+							<td>{{user.bloodGroup}}</td>
+							<td>{{user.name}}</td>
+							<td>{{user.email}}</td>
+							
+							<td>
+								<button (click)="editUser(i)">E</button>
+								<button (click)="removeUser(i)">X</button>
+							</td>
+						</tr>
+					</table>
+                    
+                </div>
+
+            </div>
+        </div>
+    </section>
